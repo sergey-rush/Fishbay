@@ -1,0 +1,63 @@
+﻿@using Fishbay.Core
+@model Fishbay.Web.Models.DataModel
+
+@{
+    Layout = "~/Views/Shared/_ProductLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-2">
+        <ul class="list-group">
+            @{
+                foreach (Section item in Model.Sections)
+                {
+                    if (item.ChildIndex == 2)
+                    {
+                        <li class="list-group-item">@Html.ActionLink(item.Name, "Index", "Shop", new { id = item.Id }, null)</li>
+
+                    }
+                    else
+                    {
+                        <li class="list-group-item list-group-item-action active">
+                            @item.Name
+                        </li>
+                    }
+
+                }
+            }
+        </ul>
+    </div>
+
+    <div class="col-md-10">
+
+        <div class="row text-center">
+            @{
+                foreach (Product item in Model.Products)
+                {
+                    <div class="card mb-4 box-shadow" style="width: 340px;">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-normal">@item.Name</h4>
+                        </div>
+                        <div class="card-body">
+                            <h1 class="card-title pricing-card-title">
+                                 <small class="text-muted">@item.Price.ToString("C")</small>
+                            </h1>
+                            <img src="@Url.Content(string.Format("~/Pictures/{0}", item.ImageUrl))"/>
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li>@item.BoxSize</li>
+                                <li>@item.Barcode</li>
+                            </ul>
+                            @Html.ActionLink("Купить", "Product", "Shop", new {id = item.ProductUid.ToString("N")}, new {@class = "btn btn-lg btn-block btn-outline-primary"})
+
+                        </div>
+                    </div>
+
+                }
+            }
+        </div>
+
+    </div>
+
+    
+
+</div>

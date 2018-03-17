@@ -1,0 +1,20 @@
+﻿@using Fishbay.Core
+@model Fishbay.Web.Models.DataModel
+@{
+    if (Model.SelectedUser.IsAuthenticated)
+    {
+        <li class="nav-item">
+            <a class="nav-link" href="@Url.Action("UserProfile", "Account")">@Model.SelectedUser.Email</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="@Url.Action("LogOut", "Account")">Выйти</a>
+
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="btn btn-outline-primary" href="@Url.Action("Login", "Account")">Войти</a>
+        </li>
+    }
+}
