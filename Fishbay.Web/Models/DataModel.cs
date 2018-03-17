@@ -11,7 +11,7 @@ namespace Fishbay.Web.Models
         public SelectListItem SelectedItem { get; set; }
         public List<NewsItem> NewsItems { get; set; }
         public NewsItem SelectedNewsItem { get; set; }
-        
 
+        public string Query { get; set; }
     }
 }

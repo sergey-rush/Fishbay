@@ -7,6 +7,7 @@ namespace Fishbay.Core
         public int Id { get; set; }
         public int SectionId { get; set; }
         public ItemState ItemState { get; set; }
+        public string Title { get; set; }
         public string UrlLink { get; set; }
         public string TextBody { get; set; }
         public string Author { get; set; }

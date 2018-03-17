@@ -1,0 +1,14 @@
+﻿@using Fishbay.Core
+@model Fishbay.Web.Models.DataModel
+<div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+   
+    @{
+        <h1 class="display-4">
+            @Model.SelectedNewsItem.Title
+        </h1>
+        <p class="lead">
+            @Html.Raw(@Model.SelectedNewsItem.TextBody)
+        </p>
+
+    }
+</div>

@@ -58,8 +58,9 @@ namespace Fishbay.Data
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add("@SectionId", SqlDbType.Int).Value = newsItem.SectionId;
                 cmd.Parameters.Add("@ItemState", SqlDbType.Int).Value = newsItem.ItemState;
+                cmd.Parameters.Add("@Title", SqlDbType.NVarChar).Value = newsItem.Title;
                 cmd.Parameters.Add("@UrlLink", SqlDbType.NVarChar).Value = newsItem.UrlLink;
-                cmd.Parameters.Add("@TextBody", SqlDbType.Text).Value = newsItem.TextBody;
+                cmd.Parameters.Add("@TextBody", SqlDbType.NVarChar).Value = newsItem.TextBody;
                 cmd.Parameters.Add("@Author", SqlDbType.NVarChar).Value = newsItem.Author;
                 cmd.Parameters.Add("@Created", SqlDbType.DateTime).Value = newsItem.Created;
                 cmd.Parameters.Add("@Id", SqlDbType.Int).Direction = ParameterDirection.Output;
@@ -78,8 +79,9 @@ namespace Fishbay.Data
                 cmd.Parameters.Add("@Id", SqlDbType.Int).Value = newsItem.Id;
                 cmd.Parameters.Add("@SectionId", SqlDbType.Int).Value = newsItem.SectionId;
                 cmd.Parameters.Add("@ItemState", SqlDbType.Int).Value = newsItem.ItemState;
+                cmd.Parameters.Add("@Title", SqlDbType.NVarChar).Value = newsItem.Title;
                 cmd.Parameters.Add("@UrlLink", SqlDbType.NVarChar).Value = newsItem.UrlLink;
-                cmd.Parameters.Add("@TextBody", SqlDbType.Text).Value = newsItem.TextBody;
+                cmd.Parameters.Add("@TextBody", SqlDbType.NVarChar).Value = newsItem.TextBody;
                 cmd.Parameters.Add("@Author", SqlDbType.NVarChar).Value = newsItem.Author;
                 cmd.Parameters.Add("@Created", SqlDbType.DateTime).Value = newsItem.Created;
                 cn.Open();

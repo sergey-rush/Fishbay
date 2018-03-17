@@ -17,7 +17,7 @@
     <AssemblyName>Fishbay.Web</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -184,8 +184,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Content Include="logo.png" />
     <Content Include="favicon.png" />
+    <Content Include="logo.png" />
     <Content Include="Checkout.html" />
     <Content Include="css\bootstrap-grid.css" />
     <Content Include="css\bootstrap-grid.min.css" />
@@ -256,6 +256,8 @@
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <Content Include="Views\Shared\LoginPartial.cshtml" />
     <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\News\Loader.cshtml" />
+    <Content Include="Views\News\NewsItem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Fishbay.BLL\Fishbay.BLL.csproj">
@@ -285,7 +287,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>54124</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/Foodvam.Web</IISUrl>
+          <IISUrl>http://localhost:54124/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

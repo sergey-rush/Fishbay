@@ -34,6 +34,7 @@ namespace Fishbay.Data
                 SectionId = (int)reader["SectionId"],
                 ItemState = (ItemState)reader["ItemState"],
                 UrlLink = reader["UrlLink"].ToString(),
+                Title = reader["Title"].ToString(),
                 TextBody = reader["TextBody"].ToString(),
                 Author = reader["Author"].ToString(),
                 Created = (DateTime)reader["Created"]
