@@ -1,5 +1,7 @@
 ﻿Git repo info
 -----------------
+https://github.com/sergey-rush
+
 Commit
 
 git status
@@ -28,3 +30,7 @@ git push -u origin master
 …or push an existing repository from the command line
 git remote add origin https://github.com/sergey-rush/Fishbay.git
 git push -u origin master
+-----------------------------------------
+$ git config --global credential.helper store
+$ git push http://example.com/repo.git
+git remote set-url origin https://github.com/sergey-rush/Fishbay.git
