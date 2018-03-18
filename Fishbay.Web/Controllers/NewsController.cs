@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using Fishbay.BLL;
 using Fishbay.Core;
@@ -8,6 +9,30 @@ namespace Fishbay.Web.Controllers
 {
     public class NewsController: Controller
     {
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult AddNews(DataModel dataModel)
+        {
+            dataModel.SelectedNewsItem.Created = DateTime.Now;
+            if (dataModel.SelectedNewsItem.Id == 0)
+            {
+                NewsItems.InsertNewsItem(dataModel.SelectedNewsItem);
+            }
+            else
+            {
+                NewsItems.UpdateNewsItem(dataModel.SelectedNewsItem);
+            }
+
+            return RedirectToAction("NewsList", "News");
+        }
+
+        public ActionResult AddNews()
+        {
+            DataModel dataModel = new DataModel();
+            dataModel.SelectedNewsItem = new NewsItem();
+            return View(dataModel);
+        }
+
         public ActionResult NewsList(int? page)
         {
             int pageNum = 1;

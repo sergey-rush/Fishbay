@@ -14,6 +14,35 @@ namespace Fishbay.BLL
 {
     public class NewsItems : BaseData
     {
+        public static bool DeleteNewsItemByNewsItemId(int newsItemId)
+        {
+            bool ret = DataAccess.NewsItems.DeleteNewsItemByNewsItemId(newsItemId);
+
+            RemoveFromCache("NewsItems_");
+
+            return ret;
+        }
+
+        /// <summary>
+        /// Inserts a new NewsItem
+        /// </summary>
+        public static int InsertNewsItem(NewsItem newsItem)
+        {
+            int returnValue = DataAccess.NewsItems.InsertNewsItem(newsItem);
+            RemoveFromCache("NewsItems_");
+            return returnValue;
+        }
+
+        /// <summary>
+        /// Updates NewsItem
+        /// </summary>
+        public static bool UpdateNewsItem(NewsItem newsItem)
+        {
+            bool ret = DataAccess.NewsItems.UpdateNewsItem(newsItem);
+            RemoveFromCache("NewsItems_");
+            return ret;
+        }
+
         public static NewsItem GetNewsItemByNewsItemId(int newsItemId)
         {
             NewsItem newsItem = null;

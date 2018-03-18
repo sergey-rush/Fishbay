@@ -27,7 +27,7 @@ namespace Fishbay.Data
         public abstract int CountNewsItems(int sectionId);
         public abstract int InsertNewsItem(NewsItem newsItem);
         public abstract bool UpdateNewsItem(NewsItem newsItem);
-
+        public abstract bool DeleteNewsItemByNewsItemId(int newsItemId);
         protected virtual NewsItem GetNewsItemFromReader(IDataReader reader)
         {
             NewsItem newsItem = new NewsItem()

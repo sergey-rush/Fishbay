@@ -1,0 +1,49 @@
+﻿@using Fishbay.Core
+@model Fishbay.Web.Models.DataModel
+@section styles {
+    @Styles.Render("~/css/editor")
+}
+@using (Html.BeginForm("AddNews", "News", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="form-group">
+        <label>Title</label>
+        @Html.TextBoxFor(m => m.SelectedNewsItem.Title, new {placeholder = "Заголовок новости", maxlength = "128", @class = "form-control", required = ""})
+    </div>
+
+    <div class="form-group">
+        <label>SubTitle</label>
+        @Html.TextBoxFor(m => m.SelectedNewsItem.SubTitle, new { placeholder = "SubTitle", maxlength = "128", @class = "form-control", required = "" })
+    </div>
+
+    @Html.TextAreaFor(m => m.SelectedNewsItem.TextBody, new { id = "summernote", placeholder = "Текст новости", required = "" })
+
+    <div class="form-group">
+        <label>UrlLink</label>
+        @Html.TextBoxFor(m => m.SelectedNewsItem.UrlLink, new { placeholder = "UrlLink", maxlength = "128", @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Author</label>
+        @Html.TextBoxFor(m => m.SelectedNewsItem.Author, new { placeholder = "Author", maxlength = "128", @class = "form-control" })
+    </div>
+
+    <br />
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-default" value="Опубликовать" />
+                        </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/editor")
+    <script type="text/javascript">
+        $(function () {
+            $('#summernote').summernote({
+                height: 400
+            });
+        });
+    </script>
+}
+
+
+
+
+

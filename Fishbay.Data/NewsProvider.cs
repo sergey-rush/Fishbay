@@ -71,6 +71,7 @@ namespace Fishbay.Data
                 cmd.Parameters.Add("@SectionId", SqlDbType.Int).Value = newsItem.SectionId;
                 cmd.Parameters.Add("@ItemState", SqlDbType.Int).Value = newsItem.ItemState;
                 cmd.Parameters.Add("@Title", SqlDbType.NVarChar).Value = newsItem.Title;
+                cmd.Parameters.Add("@SubTitle", SqlDbType.NVarChar).Value = newsItem.SubTitle;
                 cmd.Parameters.Add("@UrlLink", SqlDbType.NVarChar).Value = newsItem.UrlLink;
                 cmd.Parameters.Add("@TextBody", SqlDbType.NVarChar).Value = newsItem.TextBody;
                 cmd.Parameters.Add("@Author", SqlDbType.NVarChar).Value = newsItem.Author;
@@ -96,6 +97,19 @@ namespace Fishbay.Data
                 cmd.Parameters.Add("@TextBody", SqlDbType.NVarChar).Value = newsItem.TextBody;
                 cmd.Parameters.Add("@Author", SqlDbType.NVarChar).Value = newsItem.Author;
                 cmd.Parameters.Add("@Created", SqlDbType.DateTime).Value = newsItem.Created;
+                cn.Open();
+                int ret = ExecuteNonQuery(cmd);
+                return (ret == 1);
+            }
+        }
+
+        public override bool DeleteNewsItemByNewsItemId(int newsItemId)
+        {
+            using (SqlConnection cn = new SqlConnection(ConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand("NewsItems_DeleteNewsItemByNewsItemId", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@NewsItemId", SqlDbType.Int).Value = newsItemId;
                 cn.Open();
                 int ret = ExecuteNonQuery(cmd);
                 return (ret == 1);
