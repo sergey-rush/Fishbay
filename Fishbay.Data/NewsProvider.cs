@@ -24,15 +24,15 @@ namespace Fishbay.Data
             }
         }
 
-        public override List<NewsItem> GetPagedNewsItems(int startRowIndex, int maximumRows, int sectionId)
+        public override List<NewsItem> GetPagedNewsItems(int pageIndex, int pageSize, int sectionId)
         {
             using (SqlConnection cn = new SqlConnection(ConnectionString))
             {
                 SqlCommand cmd = new SqlCommand("NewsItems_GetPagedNewsItems", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add("@SectionId", SqlDbType.Int).Value = sectionId;
-                cmd.Parameters.Add("@PageIndex", SqlDbType.Int).Value = startRowIndex;
-                cmd.Parameters.Add("@PageSize", SqlDbType.Int).Value = maximumRows;
+                cmd.Parameters.Add("@PageIndex", SqlDbType.Int).Value = pageIndex;
+                cmd.Parameters.Add("@PageSize", SqlDbType.Int).Value = pageSize;
                 cn.Open();
                 return GetNewsItemCollectionFromReader(ExecuteReader(cmd));
             }
@@ -47,6 +47,18 @@ namespace Fishbay.Data
                 cmd.Parameters.Add("@SectionId", SqlDbType.Int).Value = sectionId;
                 cn.Open();
                 return (int) ExecuteScalar(cmd);
+            }
+        }
+
+        public override List<NewsItem> GetFrontNewsItems(int count)
+        {
+            using (SqlConnection cn = new SqlConnection(ConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand("NewsItems_GetFrontNewsItems", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@Count", SqlDbType.Int).Value = count;
+                cn.Open();
+                return GetNewsItemCollectionFromReader(ExecuteReader(cmd));
             }
         }
 

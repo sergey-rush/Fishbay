@@ -8,11 +8,28 @@ namespace Fishbay.Web.Controllers
 {
     public class NewsController: Controller
     {
+        public ActionResult NewsList(int? page)
+        {
+            int pageNum = 1;
+            if (page != null)
+            {
+                pageNum = page.Value;
+            }
+            DataModel dataModel = new DataModel();
+            
+            int pageSize = 10;
+            
+            dataModel.NewsItems = NewsItems.GetPagedNewsItems(pageNum, pageSize, 0);
+            int itemsCount = NewsItems.CountNewsItems(0);
+
+            dataModel.Pager = new Pager(itemsCount, pageNum, pageSize);
+            return View(dataModel);
+        }
+
         public ActionResult Index()
         {
-            //NewsItems.ReceiveNews();
             DataModel dataModel = new DataModel();
-            List<NewsItem> newsItems = NewsItems.GetPagedNewsItems(0, 100, 0);
+            List<NewsItem> newsItems = NewsItems.GetFrontNewsItems(30);
             dataModel.FirstNewsItem = newsItems[0];
             dataModel.SecondNewsItem = newsItems[1];
             dataModel.ThirdNewsItem = newsItems[2];
@@ -36,13 +53,5 @@ namespace Fishbay.Web.Controllers
             dataModel.SelectedNewsItem = NewsItems.GetNewsItemByNewsItemId(id);
             return View(dataModel);
         }
-
-        public ActionResult Loader()
-        {
-            DataModel dataModel = new DataModel();
-            return View(dataModel);
-        }
-
-
     }
 }

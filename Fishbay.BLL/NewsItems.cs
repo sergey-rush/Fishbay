@@ -31,10 +31,10 @@ namespace Fishbay.BLL
             return newsItem;
         }
 
-        public static List<NewsItem> GetPagedNewsItems(int startRowIndex, int maximumRows, int sectionId)
+        public static List<NewsItem> GetPagedNewsItems(int pageIndex, int pageSize, int sectionId)
         {
             List<NewsItem> cats = null;
-            string key = "NewsItems_GetPagedNewsItems_" + startRowIndex + "_" + maximumRows + "_" + sectionId;
+            string key = "NewsItems_GetPagedNewsItems_" + pageIndex + "_" + pageSize + "_" + sectionId;
 
             if (Cache[key] != null)
             {
@@ -42,8 +42,24 @@ namespace Fishbay.BLL
             }
             else
             {
-                cats = DataAccess.NewsItems.GetPagedNewsItems(GetPageIndex(startRowIndex, maximumRows), maximumRows,
-                    sectionId);
+                cats = DataAccess.NewsItems.GetPagedNewsItems(pageIndex, pageSize, sectionId);
+                CacheData(key, cats);
+            }
+            return cats;
+        }
+
+        public static List<NewsItem> GetFrontNewsItems(int count)
+        {
+            List<NewsItem> cats = null;
+            string key = "NewsItems_GetFrontNewsItems_" + count;
+
+            if (Cache[key] != null)
+            {
+                cats = (List<NewsItem>)Cache[key];
+            }
+            else
+            {
+                cats = DataAccess.NewsItems.GetFrontNewsItems(count);
                 CacheData(key, cats);
             }
             return cats;

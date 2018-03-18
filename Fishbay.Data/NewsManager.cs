@@ -22,8 +22,9 @@ namespace Fishbay.Data
         }
 
         public abstract NewsItem GetNewsItemByNewsItemId(int newsItemId);
-        public abstract List<NewsItem> GetPagedNewsItems(int startRowIndex, int maximumRows, int memberId);
-        public abstract int CountNewsItems(int memberId);
+        public abstract List<NewsItem> GetPagedNewsItems(int pageIndex, int pageSize, int sectionId);
+        public abstract List<NewsItem> GetFrontNewsItems(int count);
+        public abstract int CountNewsItems(int sectionId);
         public abstract int InsertNewsItem(NewsItem newsItem);
         public abstract bool UpdateNewsItem(NewsItem newsItem);
 

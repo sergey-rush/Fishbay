@@ -56,6 +56,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -184,6 +188,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="readme.sql" />
+    <Compile Include="Views\News\NewsItemsPager.cs" />
     <Content Include="favicon.png" />
     <Content Include="logo.png" />
     <Content Include="Checkout.html" />
@@ -210,7 +216,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AdminModel.cs" />
-    <Compile Include="Models\PositionModel.cs" />
+    <Compile Include="Models\Pager.cs" />
     <Compile Include="Models\InfoModel.cs" />
     <Compile Include="Models\SearchModel.cs" />
     <Compile Include="Models\UserModel.cs" />
@@ -256,8 +262,8 @@
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <Content Include="Views\Shared\LoginPartial.cshtml" />
     <Content Include="Views\News\Index.cshtml" />
-    <Content Include="Views\News\Loader.cshtml" />
     <Content Include="Views\News\NewsItem.cshtml" />
+    <Content Include="Views\News\NewsList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Fishbay.BLL\Fishbay.BLL.csproj">

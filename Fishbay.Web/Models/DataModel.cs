@@ -16,6 +16,7 @@ namespace Fishbay.Web.Models
         public NewsItem ThirdNewsItem { get; set; }
         public NewsItem FourthNewsItem { get; set; }
         public NewsItem FifthNewsItem { get; set; }
+        public Pager Pager { get; set; }
         public string Query { get; set; }
     }
 }
