@@ -54,6 +54,7 @@
     <Compile Include="NewsItem.cs" />
     <Compile Include="Role.cs" />
     <Compile Include="Enumerations.cs" />
+    <Compile Include="Partner.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Picture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,8 +1,9 @@
 ﻿using System;
+using Newtonsoft.Json;
 
 namespace Fishbay.Core
 {
-    public class NewsItem
+    public class Partner
     {
         public int Id { get; set; }
         public int SectionId { get; set; }
@@ -14,7 +15,5 @@ namespace Fishbay.Core
         public string Author { get; set; }
         public string ImageUrl { get; set; }
         public DateTime Created { get; set; }
-
-
     }
 }

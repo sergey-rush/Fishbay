@@ -189,7 +189,6 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="readme.sql" />
-    <Compile Include="Views\News\NewsItemsPager.cs" />
     <Content Include="favicon.png" />
     <Content Include="logo.png" />
     <Content Include="Checkout.html" />
@@ -211,6 +210,7 @@
     <Content Include="Readme.txt" />
     <Compile Include="Code\UrlExtensions.cs" />
     <Content Include="css\default.css" />
+    <Compile Include="Controllers\PartnersController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -264,6 +264,7 @@
     <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\News\NewsItem.cshtml" />
     <Content Include="Views\News\NewsList.cshtml" />
+    <Content Include="Views\Partners\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Fishbay.BLL\Fishbay.BLL.csproj">

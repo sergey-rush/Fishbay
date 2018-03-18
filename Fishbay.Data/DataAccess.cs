@@ -11,6 +11,10 @@ namespace Fishbay.Data
         {
             get { return ConfigurationManager.ConnectionStrings["SqlServer"].ToString(); }
         }
+        public static PartnerManager Partners
+        {
+            get { return PartnerManager.Instance; }
+        }
 
         public static NewsManager NewsItems
         {

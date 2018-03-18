@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="BaseData.cs" />
     <Compile Include="Membership.cs" />
+    <Compile Include="Partners.cs" />
     <Compile Include="Users.cs" />
     <Compile Include="NewsItems.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

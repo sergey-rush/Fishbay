@@ -42,7 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataAccess.cs" />
+    <Compile Include="PartnerManager.cs" />
     <Compile Include="NewsManager.cs" />
+    <Compile Include="PartnerProvider.cs" />
     <Compile Include="NewsProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserManager.cs" />
