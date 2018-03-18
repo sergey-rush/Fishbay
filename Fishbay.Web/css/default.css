@@ -17,6 +17,20 @@ a {
     color: #1a1a1a;
     margin: 9px 0 5px 0;
 }
+.bg-red {
+background: #c60304;
+background: -moz-linear-gradient(left, #c60304 0%, #c60304 30%, #f02f17 53%, #c60304 76%, #c60304 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, #c60304), color-stop(30%, #c60304), color-stop(53%, #f02f17), color-stop(76%, #c60304), color-stop(100%, #c60304));
+background: -webkit-linear-gradient(left, #c60304 0%, #c60304 30%, #f02f17 53%, #c60304 76%, #c60304 100%);
+background: -o-linear-gradient(left, #c60304 0%, #c60304 30%, #f02f17 53%, #c60304 76%, #c60304 100%);
+background: -ms-linear-gradient(left, #c60304 0%, #c60304 30%, #f02f17 53%, #c60304 76%, #c60304 100%);
+background: linear-gradient(to right, #c60304 0%, #c60304 30%, #f02f17 53%, #c60304 76%, #c60304 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c60304', endColorstr='#c60304', GradientType=1 );
+}
+
+.top {
+    width: 200px;margin: 0 auto;font-weight: bold;
+}
 
 .main-news-sub-title{
     
