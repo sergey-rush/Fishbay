@@ -26,19 +26,27 @@ namespace Fishbay.Data
         public abstract int CountNewsItems(int memberId);
         public abstract int InsertNewsItem(NewsItem newsItem);
         public abstract bool UpdateNewsItem(NewsItem newsItem);
+
         protected virtual NewsItem GetNewsItemFromReader(IDataReader reader)
         {
             NewsItem newsItem = new NewsItem()
             {
-                Id = (int)reader["Id"],
-                SectionId = (int)reader["SectionId"],
-                ItemState = (ItemState)reader["ItemState"],
+                Id = (int) reader["Id"],
+                SectionId = (int) reader["SectionId"],
+                ItemState = (ItemState) reader["ItemState"],
                 UrlLink = reader["UrlLink"].ToString(),
                 Title = reader["Title"].ToString(),
+                SubTitle = reader["SubTitle"].ToString(),
                 TextBody = reader["TextBody"].ToString(),
                 Author = reader["Author"].ToString(),
-                Created = (DateTime)reader["Created"]
+                Created = (DateTime) reader["Created"]
             };
+
+            if (reader["ImageUrl"] != DBNull.Value)
+            {
+                newsItem.ImageUrl = reader["ImageUrl"].ToString();
+            }
+
             return newsItem;
         }
 

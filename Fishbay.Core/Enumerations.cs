@@ -14,17 +14,17 @@
         [Enum("Все")]
         None = 0,
         [Enum("Создан")]
-        Created = 1,
+        FirstNews = 1,
         [Enum("Назначен")]
-        Assigned = 2,
+        SecondNews = 2,
         [Enum("Принят")]
-        Accepted = 3,
+        ThirdNews = 3,
         [Enum("Добавлен")]
-        Added = 4,
+        ForthNews = 4,
         [Enum("Отсутствует")]
-        Missing = 5,
+        FifthNews = 5,
         [Enum("Собран")]
-        Submitted = 6,
+        Unordered = 6,
         [Enum("Подтвержден")]
         Confirmed = 7,
         [Enum("Завершен")]
@@ -32,7 +32,7 @@
         [Enum("Приобретен")]
         Purchased = 9,
         [Enum("Собирается")]
-        Picking = 10,
+        Enabled = 10,
         [Enum("Собран")]
         Picked = 11,
         [Enum("Упаковывается")]
