@@ -30,7 +30,6 @@ namespace Fishbay.Data
             {
                 SqlCommand cmd = new SqlCommand("Partners_GetPagedPartners", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add("@SectionId", SqlDbType.Int).Value = sectionId;
                 cmd.Parameters.Add("@PageIndex", SqlDbType.Int).Value = pageIndex;
                 cmd.Parameters.Add("@PageSize", SqlDbType.Int).Value = pageSize;
                 cn.Open();
@@ -38,13 +37,13 @@ namespace Fishbay.Data
             }
         }
 
-        public override int CountPartners(int sectionId)
+        public override int CountPartners(ItemState itemState)
         {
             using (SqlConnection cn = new SqlConnection(ConnectionString))
             {
                 SqlCommand cmd = new SqlCommand("Partners_CountPartners", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add("@SectionId", SqlDbType.Int).Value = sectionId;
+                cmd.Parameters.Add("@ItemState", SqlDbType.Int).Value = itemState;
                 cn.Open();
                 return (int) ExecuteScalar(cmd);
             }
@@ -68,12 +67,13 @@ namespace Fishbay.Data
             {
                 SqlCommand cmd = new SqlCommand("Partners_InsertPartner", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add("@SectionId", SqlDbType.Int).Value = partner.SectionId;
                 cmd.Parameters.Add("@ItemState", SqlDbType.Int).Value = partner.ItemState;
                 cmd.Parameters.Add("@Title", SqlDbType.NVarChar).Value = partner.Title;
+                cmd.Parameters.Add("@About", SqlDbType.NVarChar).Value = partner.About;
+                cmd.Parameters.Add("@Info", SqlDbType.NVarChar).Value = partner.Info;
+                cmd.Parameters.Add("@Contact", SqlDbType.NVarChar).Value = partner.Contact;
+                cmd.Parameters.Add("@Address", SqlDbType.NVarChar).Value = partner.Address;
                 cmd.Parameters.Add("@UrlLink", SqlDbType.NVarChar).Value = partner.UrlLink;
-                cmd.Parameters.Add("@TextBody", SqlDbType.NVarChar).Value = partner.TextBody;
-                cmd.Parameters.Add("@Author", SqlDbType.NVarChar).Value = partner.Author;
                 cmd.Parameters.Add("@Created", SqlDbType.DateTime).Value = partner.Created;
                 cmd.Parameters.Add("@Id", SqlDbType.Int).Direction = ParameterDirection.Output;
                 cn.Open();
@@ -89,12 +89,13 @@ namespace Fishbay.Data
                 SqlCommand cmd = new SqlCommand("Partners_UpdatePartner", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add("@Id", SqlDbType.Int).Value = partner.Id;
-                cmd.Parameters.Add("@SectionId", SqlDbType.Int).Value = partner.SectionId;
                 cmd.Parameters.Add("@ItemState", SqlDbType.Int).Value = partner.ItemState;
                 cmd.Parameters.Add("@Title", SqlDbType.NVarChar).Value = partner.Title;
+                cmd.Parameters.Add("@About", SqlDbType.NVarChar).Value = partner.About;
+                cmd.Parameters.Add("@Info", SqlDbType.NVarChar).Value = partner.Info;
+                cmd.Parameters.Add("@Contact", SqlDbType.NVarChar).Value = partner.Contact;
+                cmd.Parameters.Add("@Address", SqlDbType.NVarChar).Value = partner.Address;
                 cmd.Parameters.Add("@UrlLink", SqlDbType.NVarChar).Value = partner.UrlLink;
-                cmd.Parameters.Add("@TextBody", SqlDbType.NVarChar).Value = partner.TextBody;
-                cmd.Parameters.Add("@Author", SqlDbType.NVarChar).Value = partner.Author;
                 cmd.Parameters.Add("@Created", SqlDbType.DateTime).Value = partner.Created;
                 cn.Open();
                 int ret = ExecuteNonQuery(cmd);

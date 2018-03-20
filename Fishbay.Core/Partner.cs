@@ -6,14 +6,14 @@ namespace Fishbay.Core
     public class Partner
     {
         public int Id { get; set; }
-        public int SectionId { get; set; }
         public ItemState ItemState { get; set; }
         public string Title { get; set; }
-        public string SubTitle { get; set; }
+        public string About { get; set; }
+        public string Info { get; set; }
+        public string Contact { get; set; }
+        public string Address { get; set; }
         public string UrlLink { get; set; }
-        public string TextBody { get; set; }
-        public string Author { get; set; }
-        public string ImageUrl { get; set; }
+        public string Logo { get; set; }
         public DateTime Created { get; set; }
     }
 }

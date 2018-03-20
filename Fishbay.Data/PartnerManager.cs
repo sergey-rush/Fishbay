@@ -24,7 +24,7 @@ namespace Fishbay.Data
         public abstract Partner GetPartnerByPartnerId(int partnerId);
         public abstract List<Partner> GetPagedPartners(int pageIndex, int pageSize, int sectionId);
         public abstract List<Partner> GetFrontPartners(int count);
-        public abstract int CountPartners(int sectionId);
+        public abstract int CountPartners(ItemState itemState);
         public abstract int InsertPartner(Partner partner);
         public abstract bool UpdatePartner(Partner partner);
 
@@ -33,20 +33,20 @@ namespace Fishbay.Data
             Partner partner = new Partner()
             {
                 Id = (int) reader["Id"],
-                SectionId = (int) reader["SectionId"],
                 ItemState = (ItemState) reader["ItemState"],
-                UrlLink = reader["UrlLink"].ToString(),
                 Title = reader["Title"].ToString(),
-                SubTitle = reader["SubTitle"].ToString(),
-                TextBody = reader["TextBody"].ToString(),
-                Author = reader["Author"].ToString(),
+                About = reader["About"].ToString(),
+                Info = reader["Info"].ToString(),
+                Contact = reader["Contact"].ToString(),
+                Address = reader["Address"].ToString(),
+                UrlLink = reader["UrlLink"].ToString(),
                 Created = (DateTime) reader["Created"]
             };
 
-            if (reader["ImageUrl"] != DBNull.Value)
-            {
-                partner.ImageUrl = reader["ImageUrl"].ToString();
-            }
+            //if (reader["ImageUrl"] != DBNull.Value)
+            //{
+            //    partner.ImageUrl = reader["ImageUrl"].ToString();
+            //}
 
             return partner;
         }

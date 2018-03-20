@@ -47,90 +47,21 @@ namespace Fishbay.BLL
             }
             return cats;
         }
-
-        public static List<Partner> GetFrontPartners(int count)
-        {
-            List<Partner> cats = null;
-            string key = "Partners_GetFrontPartners_" + count;
-
-            if (Cache[key] != null)
-            {
-                cats = (List<Partner>)Cache[key];
-            }
-            else
-            {
-                cats = DataAccess.Partners.GetFrontPartners(count);
-                CacheData(key, cats);
-            }
-            return cats;
-        }
-
-        public static int CountPartners(int sectionId)
+        
+        public static int CountPartners(ItemState itemState)
         {
             int itemCount = 0;
-            string key = "Partners_CountPartners_" + sectionId;
+            string key = "Partners_CountPartners_" + itemState;
             if (Cache[key] != null)
             {
                 itemCount = (int) Cache[key];
             }
             else
             {
-                itemCount = DataAccess.Partners.CountPartners(sectionId);
+                itemCount = DataAccess.Partners.CountPartners(itemState);
                 CacheData(key, itemCount);
             }
             return itemCount;
-        }
-
-        public static List<Partner> ReceivePartner()
-        {
-            List<Partner> partners = new List<Partner>();
-            //string url = "http://fish.gov.ru/press-tsentr/novosti?format=feed&type=rss";
-            //string url = "http://fish.gov.ru/press-tsentr/anonsy?format=feed&type=rss";
-            //string url = "http://fish.gov.ru/press-tsentr/obzor-smi?format=feed&type=rss";
-            //string url = "http://fish.gov.ru/territorialnye-upravleniya?format=feed&type=rss";
-            string url = "";
-            WebRequest request = WebRequest.Create(url);
-            HttpWebResponse response;
-            Stream stream = null;
-            try
-            {
-                response = (HttpWebResponse) request.GetResponse();
-                stream = response.GetResponseStream();
-            }
-            catch
-            {
-                return null;
-            }
-
-            partners = ParsePartner(stream);
-
-            return partners;
-        }
-
-        private static List<Partner> ParsePartner(Stream stream)
-        {
-            XElement projects = XElement.Load(stream);
-            var elements = from e in projects.Descendants("item") select e;
-            List<Partner> partners =
-                elements.Select(
-                    e =>
-                        new Partner
-                        {
-                            Title = e.Element("title").Value,
-                            UrlLink = e.Element("link").Value,
-                            Created = Convert.ToDateTime(e.Element("pubDate").Value),
-                            TextBody = e.Element("description").Value,
-                            Author = e.Element("author").Value
-                        }).ToList();
-
-            foreach (Partner partner in partners)
-            {
-                partner.SectionId = 4;
-                DataAccess.Partners.InsertPartner(partner);
-            }
-
-
-            return partners;
         }
     }
 }

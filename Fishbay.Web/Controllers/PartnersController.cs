@@ -13,5 +13,12 @@ namespace Fishbay.Web.Controllers
             DataModel dataModel = new DataModel();
             return View(dataModel);
         }
+
+        public ActionResult Partner(int id)
+        {
+            DataModel dataModel = new DataModel();
+            dataModel.SelectedPartner = Partners.GetPartnerByPartnerId(id);
+            return View(dataModel);
+        }
     }
 }

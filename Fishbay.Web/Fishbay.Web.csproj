@@ -272,6 +272,7 @@
     <Content Include="Views\News\NewsList.cshtml" />
     <Content Include="Views\Partners\Index.cshtml" />
     <Content Include="Views\News\AddNews.cshtml" />
+    <Content Include="Views\Partners\Partner.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Fishbay.BLL\Fishbay.BLL.csproj">

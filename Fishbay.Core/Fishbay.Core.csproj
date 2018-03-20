@@ -52,6 +52,7 @@
     <Compile Include="EnumName.cs" />
     <Compile Include="GuidMethodSelectorAttribute.cs" />
     <Compile Include="NewsItem.cs" />
+    <Compile Include="PriceItem.cs" />
     <Compile Include="Role.cs" />
     <Compile Include="Enumerations.cs" />
     <Compile Include="Partner.cs" />

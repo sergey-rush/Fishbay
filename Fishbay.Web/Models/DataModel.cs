@@ -9,6 +9,8 @@ namespace Fishbay.Web.Models
     {
         public IList<SelectListItem> Items { get; set; }
         public SelectListItem SelectedItem { get; set; }
+        public List<Partner> Partners { get; set; }
+        public Partner SelectedPartner { get; set; }
         public List<NewsItem> NewsItems { get; set; }
         public NewsItem SelectedNewsItem { get; set; }
         public NewsItem FirstNewsItem { get; set; }

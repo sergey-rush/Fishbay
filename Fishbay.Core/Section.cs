@@ -10,8 +10,5 @@ namespace Fishbay.Core
         [JsonIgnore]
         public ItemState ItemState { get; set; }
         public string Name { get; set; }
-        public string QueryString { get; set; }
-        public int XPos { get; set; }
-        public int YPos { get; set; }
     }
 }
